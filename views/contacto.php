@@ -1,0 +1,178 @@
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['ajax'])) {
+    include '../config/conexion.php';
+    $nombre = mysqli_real_escape_string($conexion, $_POST['nombre']);
+    $email = mysqli_real_escape_string($conexion, $_POST['email']);
+    $telefono = mysqli_real_escape_string($conexion, $_POST['telefono']);
+    $mensaje = mysqli_real_escape_string($conexion, $_POST['mensaje']);
+
+    $sql = "INSERT INTO contacto (nombre, email, telefono, mensaje) VALUES ('$nombre', '$email', '$telefono', '$mensaje')";
+    if (mysqli_query($conexion, $sql)) {
+        echo json_encode(['success' => true]);
+    } else {
+        echo json_encode(['success' => false, 'error' => mysqli_error($conexion)]);
+    }
+    exit;
+}
+?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | Representaciones Hidráulicas J.E.</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <img src="img/LogoRHJE.png" alt="Representaciones Hidráulicas J.E." class="logo-header">
+            <nav class="main-nav">
+                <input type="checkbox" id="menu-toggle" />
+                <label for="menu-toggle" class="menu-icon">&#9776;</label>
+                <ul class="menu">
+                    <li><a href="index.php">Inicio</a></li>
+                    <li><a href="quienes-somos.html">Quiénes somos</a></li>
+                    <li><a href="nuestros-trabajos.html">Nuestros trabajos</a></li>
+                    <li class="dropdown">
+                        <a href="#">Servicios <span class="arrow">&#9660;</span></a>
+                        <ul class="submenu">
+                            <li><a href="servicio-mantenimiento.html">Mantenimientos preventivos y correctivos de maquinaria pesada</a></li>
+                            <li><a href="servicio-reparacion.html">Reparación de cilindros hidráulicos, bombas, válvulas y mandos</a></li>
+                            <li><a href="servicio-fabricacion.html">Fabricación de piezas especiales</a></li>
+                            <li><a href="servicio-soldadura.html">Soldadura</a></li>
+                            <li><a href="servicio-torno.html">Torno</a></li>
+                            <li><a href="servicio-fresadora.html">Fresadora</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contacto.php" class="active">Contacto</a></li>
+                </ul>
+                <div class="auth-links">
+                    <a href="login_perfil.php">Iniciar Sesión</a>
+                    <a href="registrarse_perfil.php">Registrarse</a>
+                </div>
+            </nav>
+            <div style="clear:both"></div>
+        </div>
+    </header>
+
+    <!-- Sección de Contacto -->
+    <section class="contact-section">
+        <div class="contact-main-container">
+            <!-- Información de contacto -->
+            <div class="contact-info-box">
+                <h2>Información de contacto</h2>
+                <ul>
+                    <li>
+                        <strong>Teléfonos:</strong><br>
+                        <a href="tel:+573154608383">+57 315 4608383</a><br>
+                        <a href="tel:+573184024628">+57 318 4024628</a>
+                    </li>
+                    <li style="margin-top:14px;">
+                        <strong>Correos electrónicos:</strong><br>
+                        <a href="mailto:hidramecind@gmail.com">hidramecind@gmail.com</a><br>
+                    </li>
+                </ul>
+            </div>
+            <!-- Formulario de contacto -->
+            <div class="contact-form-box">
+                <h2>Formulario de contacto</h2>
+                <p class="contact-form-desc">
+                    Si no puedes comunicarte con nosotros a través de WhatsApp o teléfono, por favor completa el siguiente formulario y te responderemos lo antes posible.
+                </p>
+                <form class="contact-form" id="contactForm" action="contacto.php" method="post">
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo electrónico</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel" id="telefono" name="telefono">
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Enviar mensaje</button>
+                </form>
+                <div id="notificacion" style="display:none; margin-top:15px; color:green; font-weight:bold;"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div class="footer-banner">
+        <div class="footer-col">
+            <h3>Páginas</h3>
+            <ul>
+                <li><a href="index.php">Inicio</a></li>
+                <li><a href="quienes-somos.html">Quiénes Somos</a></li>
+                <li><a href="nuestros-trabajos.html">Nuestros Trabajos</a></li>
+                <li><a href="#">Servicios</a></li>
+                <li><a href="contacto.php">Contacto</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h3>Servicios</h3>
+            <ul>
+                <li>Mantenimientos preventivos y correctivos de maquinaria pesada</li>
+                <li>Reparación de cilindros hidráulicos, bombas, válvulas y mandos</li>
+                <li>Fabricación de piezas especiales</li>
+                <li>Soldadura</li>
+                <li>Torno</li>
+                <li>Fresadora</li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h3>Encuéntrenos</h3>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.6494976164768!2d-74.14143652628022!3d4.6564406420422735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9b039d78a493%3A0x65fbf09acf154b29!2sRepresentaciones%20Hidráulicas%20JE%20SAS!5e0!3m2!1ses-419!2sus!4v1752098692017!5m2!1ses-419!2sus" width="100%" height="180" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-bottom">
+            © 2025 Representaciones Hidráulicas J.E. | Todos los derechos reservados.
+        </div>
+    </footer>
+    <!-- Botón flotante de WhatsApp -->
+    <a href="https://wa.me/573157922254" class="whatsapp-chat" target="_blank" title="Chatea con nosotros por WhatsApp">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp" />
+    </a>
+    <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        var form = e.target;
+        var datos = new FormData(form);
+        datos.append('ajax', '1'); // Para identificar la petición AJAX
+
+        fetch('', {
+            method: 'POST',
+            body: datos
+        })
+        .then(response => response.json())
+        .then(data => {
+            var noti = document.getElementById('notificacion');
+            if (data.success) {
+                noti.textContent = '✅ ¡Formulario enviado con éxito!';
+                noti.style.display = 'block';
+                form.reset();
+            } else {
+                noti.textContent = '❌ Error al enviar el formulario. ' + (data.error ? data.error : 'Intenta de nuevo.');
+                noti.style.display = 'block';
+            }
+        })
+        .catch(() => {
+            var noti = document.getElementById('notificacion');
+            noti.textContent = '❌ Error de conexión.';
+            noti.style.display = 'block';
+        });
+    });
+    </script>
+</body>
+</html>

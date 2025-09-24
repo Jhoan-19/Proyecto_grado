@@ -1,0 +1,761 @@
+/* ===========================
+   Variables globales para el formulario y perfil
+   =========================== */
+:root {
+    --form-text-color: #222;
+    --perfil-texto: #222;
+    --bg-card: #fff;
+    --primary: #007bff;
+    --primary-variant: #0056b3;
+    --border-light: #bfc9d9;
+}
+body.dark-mode-variables {
+    --form-text-color: #f0f0f0;
+    --perfil-texto: #f0f0f0;
+    --bg-card: #23272f;
+}
+body:not(.dark-mode-variables) {
+    --form-text-color: #222;
+    --perfil-texto: #222;
+    --bg-card: #fff;
+}
+/* ===========================
+   Contenedor principal de instrucciones
+   =========================== */
+.instrucciones {
+    background: #f7f9fc;
+    border: 1.5px solid #bfc9d9;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    padding: 2rem 2.5rem;
+    margin: 2rem auto 0 auto;
+    max-width: 650px;
+    color: #222;
+    font-size: 1.08em;
+    line-height: 1.7;
+    transition: background 0.3s, color 0.3s;
+}
+
+.instrucciones p {
+    font-weight: 600;
+    font-size: 1.15em;
+    margin-bottom: 1em;
+    color: #007bff;
+}
+
+.instrucciones ul {
+    margin-left: 1.2em;
+    padding-left: 0.5em;
+}
+
+.instrucciones li {
+    margin-bottom: 1em;
+    padding-left: 0.2em;
+    position: relative;
+    font-size: 1em;
+}
+
+.instrucciones li::before {
+    content: "💡";
+    position: absolute;
+    left: -1.5em;
+    color: #1B9C85;
+    font-size: 1.1em;
+}
+
+body.dark-mode-variables .instrucciones {
+    background: #23272f;
+    border-color: #444a57;
+    color: #f0f0f0;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+}
+
+body.dark-mode-variables .instrucciones p {
+    color: #4ea8ff;
+}
+
+/* ===========================
+   Contenedor principal del formulario de agendar cita
+   =========================== */
+.form-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 0 12px rgba(0, 0, 0, .2);
+    background-color: var(--bg-card);
+    border-radius: 15px;
+    width: 100%;
+    max-width: 750px;
+    margin: 2rem auto 0 auto;
+    color: var(--form-text-color);
+}
+/* Mejora visual para textarea de descripción y archivos */
+.form-container textarea#descripcion,
+.formulario-actualizar textarea#descripcion {
+    width: 100%;
+    min-height: 100px;
+    max-height: 2200px;
+    resize: vertical;
+    border: 1.5px solid #bfc9d9;
+    border-radius: 8px;
+    padding: 1rem 1.2rem;
+    font-size: 1.08em;
+    background: #f7f9fc;
+    color: #222;
+    margin-bottom: 1.2rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    transition: border 0.2s, box-shadow 0.2s;
+}
+
+.form-container textarea#descripcion:focus,
+.formulario-actualizar textarea#descripcion:focus {
+    border: 2px solid #007bff;
+    background: #fff;
+    outline: none;
+    box-shadow: 0 4px 16px rgba(0,123,255,0.08);
+}
+
+.form-container input[type="file"],
+.formulario-actualizar input[type="file"] {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+}
+
+/* ===========================
+   Etiquetas y textos del formulario
+   =========================== */
+.form-container label {
+    display: block;
+    margin-top: 1rem;
+    font-weight: bold;
+    color: var(--form-text-color);
+}
+
+/* ===========================
+   Inputs y selects del formulario
+   =========================== */
+.form-container input,
+.form-container select {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    margin-top: 0.3rem;
+    border: 1.5px solid var(--border-light);
+    border-radius: 6px;
+    font-size: 1rem;
+    background: #f7f9fc;
+    color: var(--form-text-color);
+    transition: border 0.2s, background 0.2s, color 0.2s;
+}
+.form-container input:focus,
+.form-container select:focus {
+    border: 2px solid var(--primary);
+    outline: none;
+    background: #fff;
+}
+.form-container input::placeholder {
+    color: #888;
+}
+body.dark-mode-variables .form-container input,
+body.dark-mode-variables .form-container select {
+    background: #23272f;
+    color: var(--form-text-color);
+    border-color: #444a57;
+}
+body.dark-mode-variables .form-container input:focus,
+body.dark-mode-variables .form-container select:focus {
+    background: #23272f;
+    border-color: var(--primary);
+}
+body.dark-mode-variables .form-container input::placeholder {
+    color: #ccc;
+}
+
+/* ===========================
+   Botón principal de agendar cita y botón subir foto
+   =========================== */
+
+.btn-cancelar {
+ background: linear-gradient(90deg, #ff4e4e 60%, #b30000 100%);
+    color: #fff;
+}
+.btn-cancelar:hover {
+    background: linear-gradient(90deg, #b30000 60%, #ff4e4e 100%);
+    transform: scale(1.04);
+}
+.btn-agendar,
+.btn.btn-subir-foto {
+    margin-top: 2.2rem;
+    width: 100%;
+    padding: 0.8rem;
+    background: linear-gradient(90deg, var(--primary) 60%, var(--primary-variant) 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.08em;
+    font-weight: 600;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    letter-spacing: 0.5px;
+}
+.btn-agendar:hover,
+.btn.btn-subir-foto:hover {
+    background: linear-gradient(90deg, var(--primary-variant) 60%, var(--primary) 100%);
+    transform: scale(1.03);
+    box-shadow: 0 4px 18px rgba(0,0,0,0.18);
+}
+
+/* ===========================
+   Botón volver (enlaces secundarios)
+   =========================== */
+.volver {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+/* ===========================
+   Alertas y mensajes de error
+   =========================== */
+.alert {
+    background-color: #d1e7dd;
+    color: #0f5132;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+.error {
+    background-color: #f8d7da;
+    color: #842029;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* ===========================
+   Título principal del formulario
+   =========================== */
+main > h1 {
+    text-align: center;
+    color: var(--form-text-color);
+    font-size: 2em;
+    font-weight: 700;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.5px;
+}
+body.dark-mode-variables main > h1 {
+    color: var(--form-text-color);
+}
+
+/* ===========================
+   Perfil de usuario (para reutilizar bloques de usuario)
+   =========================== */
+.seccion-perfil-usuario,
+.seccion-perfil-usuario .perfil-usuario-body {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+.seccion-perfil-usuario .perfil-usuario-header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(#B873FF, transparent);
+    margin-bottom: 1.25rem;
+}
+.seccion-perfil-usuario .perfil-usuario-portada {
+    display: block;
+    position: relative;
+    width: 90%;
+    height: 17rem;
+    background-image: linear-gradient(45deg, #BC3CFF, #317FFF);
+    border-radius: 0 0 20px 20px;
+}
+.seccion-perfil-usuario .perfil-usuario-avatar {
+    display: flex;
+    width: 180px;
+    height: 180px;
+    align-items: center;
+    justify-content: center;
+    border: 7px solid #FFFFFF;
+    background-color: #DFE5F2;
+    border-radius: 50%;
+    box-shadow: 0 0 12px rgba(0, 0, 0, .2);
+    position: absolute;
+    bottom: -40px;
+    left: calc(50% - 90px);
+    z-index: 1;
+}
+.seccion-perfil-usuario .perfil-usuario-avatar img,
+.rounded-circle {
+    width: 100%;
+    border-radius: 50% !important;
+    position: relative;
+}
+.seccion-perfil-usuario .perfil-usuario-body {
+    width: 70%;
+    position: relative;
+    max-width: 750px;
+}
+.seccion-perfil-usuario .perfil-usuario-bio {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 0 12px rgba(0, 0, 0, .2);
+    background-color: var(--bg-card);
+    border-radius: 15px;
+    width: 100%;
+    margin-bottom: 1.25rem;
+    text-align: center;
+}
+.seccion-perfil-usuario .perfil-usuario-body .titulo {
+    display: block;
+    width: 100%;
+    font-size: 1.75em;
+    margin-bottom: 0.5rem;
+}
+.seccion-perfil-usuario .perfil-usuario-body .texto {
+    display: block;
+    width: 100%;
+    font-size: 1.5em;
+}
+.seccion-perfil-usuario .perfil-usuario-bio,
+.seccion-perfil-usuario .perfil-usuario-bio .titulo,
+.seccion-perfil-usuario .perfil-usuario-bio .texto {
+    color: var(--perfil-texto) !important;
+}
+
+/* ===========================
+   Footer del Perfil de Usuario (igual que en usuarios/actualizar_perfil)
+   =========================== */
+.seccion-perfil-usuario .perfil-usuario-footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 0 12px rgba(0, 0, 0, .2);
+    background-color: var(--bg-card);
+    border-radius: 15px;
+    width: 100%;
+}
+/* ===========================
+   Formulario de Actualización de Cita
+   =========================== */
+.formulario-actualizar {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    background: var(--bg-card);
+    padding: 2rem 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px #181a1e;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.formulario-actualizar ul.lista-datos {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.formulario-actualizar li {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.formulario-actualizar label {
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    color: #0044cc;
+    font-size: 1rem;
+    letter-spacing: 0.2px;
+}
+
+.formulario-actualizar input[type="text"],
+.formulario-actualizar input[type="email"],
+.formulario-actualizar input[type="date"],
+.formulario-actualizar input[type="time"],
+.formulario-actualizar select {
+    padding: 0.7rem 1rem;
+    border: 1.5px solid #bfc9d9;
+    border-radius: 6px;
+    font-size: 1rem;
+    background: #f7f9fc;
+    color: #222;
+    transition: border 0.2s;
+}
+
+.formulario-actualizar input:focus,
+.formulario-actualizar select:focus {
+    border: 2px solid #6C9BCF;
+    outline: none;
+    background: #fff;
+}
+
+.formulario-actualizar .btn {
+    margin-top: 1rem;
+    padding: 0.7rem 2rem;
+    font-size: 1.1rem;
+    border-radius: 6px;
+    background: linear-gradient(90deg, #007bff 60%, #0056b3 100%);
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.formulario-actualizar .btn:hover {
+    background: linear-gradient(90deg, #0056b3 60%, #007bff 100%);
+    transform: scale(1.04);
+}
+
+/* ===========================
+   Mejora visual para detalles de la cita en confirmación
+   =========================== */
+.detalles-cita {
+    list-style: none;
+    padding: 1.5em 2em;
+    margin: 1.5em 0 0 0;
+    background: #f7f9fc;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px #181a1e;
+    font-size: 1.12em;
+    color: var(--perfil-texto);
+    display: flex;
+    flex-direction: column;
+    gap: 1.1em;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1.5px solid #e0e6ef;
+    transition: background 0.3s, color 0.3s;
+}
+
+.detalles-cita li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7em;
+    padding: 0.5em 0;
+    border-bottom: 1px solid #e9ecf3;
+    transition: border-color 0.3s;
+}
+
+.detalles-cita li:last-child {
+    border-bottom: none;
+}
+
+.detalles-cita li strong {
+    color: #007bff;
+    font-weight: 600;
+    min-width: 170px;
+    display: inline-block;
+    letter-spacing: 0.2px;
+    transition: color 0.3s;
+}
+
+.detalles-cita a {
+    color: #0056b3;
+    text-decoration: underline;
+    word-break: break-all;
+    transition: color 0.3s;
+}
+
+/* ===== Modo oscuro para detalles-cita ===== */
+body.dark-mode-variables .detalles-cita {
+    background: #23272f;
+    color: #f0f0f0;
+    border: 1.5px solid #444a57;
+}
+
+body.dark-mode-variables .detalles-cita li {
+    border-bottom: 1px solid #444a57;
+}
+
+body.dark-mode-variables .detalles-cita li strong {
+    color: #4ea8ff;
+}
+
+body.dark-mode-variables .detalles-cita a {
+    color: #8ecbff;
+}
+
+/* ===========================
+   Contenedor de botones (igual que en usuarios)
+   =========================== */
+.contenedor-botones {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+.contenedor-botones .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0044cc;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    margin: 0;
+    transition: transform 0.3s, background-color 0.3s;
+    border: none;
+    font-size: 1em;
+}
+.contenedor-botones .btn:hover {
+    background-color: #003399;
+    transform: scale(1.05);
+}
+
+/* ===========================
+   Alertas del perfil de usuario
+   =========================== */
+.perfil-usuario-bio .alert {
+    display: inline-block;
+    background: linear-gradient(90deg, #1B9C85 60%, #007bff 100%);
+    color: #fff;
+    padding: 0.9em 2em 0.9em 1.2em;
+    border-radius: 10px;
+    font-size: 1.08em;
+    font-weight: 600;
+    margin-bottom: 1em;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.10);
+    position: relative;
+    animation: fadeInAlert 0.5s;
+    letter-spacing: 0.5px;
+}
+.perfil-usuario-bio .alert::before {
+    content: '✔';
+    font-size: 1.3em;
+    margin-right: 0.7em;
+    vertical-align: middle;
+    color: #fff;
+}
+
+/* ===========================
+   Botones y Contenedores de Botones
+   =========================== */
+.contenedor-botones {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+@media (prefers-color-scheme: dark) {
+    .perfil-usuario-bio .alert {
+        background: linear-gradient(90deg, #1B9C85 60%, #0056b3 100%);
+        color: #fff;
+        box-shadow: 0 4px 18px rgba(0,0,0,0.25);
+    }
+}
+@keyframes fadeInAlert {
+    from { opacity: 0; transform: translateY(-10px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+
+/* ===========================
+   Responsive (tablets y móviles)
+   =========================== */
+@media (max-width: 900px) {
+    .form-container {
+        width: 99vw;
+        max-width: 99vw;
+        margin: 0 auto;
+        padding: 1.2rem 0.7rem;
+        border-radius: 10px;
+    }
+    .seccion-perfil-usuario .perfil-usuario-header,
+    .seccion-perfil-usuario .perfil-usuario-body,
+    .seccion-perfil-usuario .perfil-usuario-footer {
+        width: 99vw;
+        max-width: 99vw;
+        margin: 0 auto;
+        padding: 0;
+    }
+    .seccion-perfil-usuario .perfil-usuario-portada {
+        height: 10rem;
+        min-height: 10rem;
+        border-radius: 0 0 12px 12px;
+        width: 100vw;
+        max-width: 100vw;
+        position: relative;
+    }
+    .seccion-perfil-usuario .perfil-usuario-avatar {
+        width: 100px;
+        height: 100px;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -35px;
+        border-width: 5px;
+        position: absolute;
+        z-index: 2;
+    }
+    .seccion-perfil-usuario .perfil-usuario-body {
+        margin-top: 3.5rem;
+        padding: 1rem 0.5rem;
+    }
+    .seccion-perfil-usuario .perfil-usuario-bio,
+    .seccion-perfil-usuario .perfil-usuario-footer {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem 0.5rem;
+        border-radius: 10px;
+    }
+    .seccion-perfil-usuario .perfil-usuario-body .titulo,
+    .seccion-perfil-usuario .perfil-usuario-body .texto {
+        font-size: 1.2em;
+    }
+    main > h1 {
+        font-size: 1.4em;
+        margin-top: 1.2rem;
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 700px) {
+    .detalles-cita {
+        padding: 1em 0.5em;
+        font-size: 1em;
+        max-width: 99vw;
+    }
+    .detalles-cita li strong {
+        min-width: 120px;
+    }
+}
+@media (max-width: 700px) {
+    .instrucciones {
+        padding: 1.2rem 0.7rem;
+        font-size: 1em;
+        max-width: 99vw;
+    }
+}
+
+@media (max-width: 600px) {
+    .form-container {
+        width: 100vw;
+        max-width: 100vw;
+        padding: 1rem 0.5rem;
+        border-radius: 8px;
+    }
+    .seccion-perfil-usuario .perfil-usuario-header,
+    .seccion-perfil-usuario .perfil-usuario-body,
+    .seccion-perfil-usuario .perfil-usuario-footer {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+    }
+    .seccion-perfil-usuario .perfil-usuario-portada {
+        height: 8rem;
+        min-height: 8rem;
+    }
+    .seccion-perfil-usuario .perfil-usuario-avatar {
+        width: 80px;
+        height: 80px;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -20px;
+        border-width: 4px;
+    }
+    .seccion-perfil-usuario .perfil-usuario-body {
+        margin-top: 2.5rem;
+        padding: 0.5rem 0.2rem;
+    }
+    .seccion-perfil-usuario .perfil-usuario-bio,
+    .seccion-perfil-usuario .perfil-usuario-footer {
+        padding: 0.7rem 0.2rem;
+    }
+    .seccion-perfil-usuario .perfil-usuario-body .titulo,
+    .seccion-perfil-usuario .perfil-usuario-body .texto {
+        font-size: 1.1em;
+    }
+    main > h1 {
+        font-size: 1.1em;
+        margin-top: 1rem;
+        margin-bottom: 0.7rem;
+    }
+    .form-container label,
+    .form-container input,
+    .form-container select,
+    .form-container button {
+        font-size: 1em;
+    }
+    .contenedor-botones {
+        flex-direction: column;
+        gap: 0.8rem;
+        margin-top: 1.2rem;
+        align-items: stretch;
+    }
+}
+@media (max-width: 600px) {
+    main {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100vw;
+        max-width: 100vw;
+        margin-left: -50vw;
+        left: 50%;
+        position: relative;
+        box-sizing: border-box;
+        border-radius: 0;
+        padding: 0.7rem 0;
+        background-clip: padding-box;
+    }
+    main > * {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+/* Responsive para botones en móvil */
+@media (max-width: 600px) {
+    .contenedor-botones {
+        flex-direction: column;
+        gap: 0.8rem;
+        margin-top: 1.2rem;
+        align-items: stretch;
+    }
+    .contenedor-botones .btn {
+        width: 100%;
+        font-size: 1.08em;
+        padding: 0.9em 0;
+        border-radius: 8px;
+        background: linear-gradient(90deg, #007bff 60%, #0056b3 100%);
+        color: #fff;
+        font-weight: 600;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+        border: none;
+        transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+        letter-spacing: 0.5px;
+    }
+    .contenedor-botones .btn:hover, .contenedor-botones .btn:active {
+        background: linear-gradient(90deg, #0056b3 60%, #007bff 100%);
+        transform: scale(1.03);
+        box-shadow: 0 4px 18px rgba(0,0,0,0.18);
+    }
+}
+
+/* ===========================
+   Modo oscuro para formulario y título
+   =========================== */
+body.dark-mode-variables .form-container {
+    background: #23272f;
+    box-shadow: 0 0 12px rgba(0,0,0,0.25);
+}
+body.dark-mode-variables main > h1 {
+    color: var(--form-text-color);
+}

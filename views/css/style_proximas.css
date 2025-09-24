@@ -1,0 +1,210 @@
+main {
+    margin-top: 2.5rem;
+    padding: 0 1.5rem;
+}
+
+main > h1 {
+    text-align: center;
+    color: var(--form-text-color, #222);
+    font-size: 2em;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    letter-spacing: 0.5px;
+    transition: color 0.3s;
+}
+/* Modal flotante mejorado mensaje de usuarios */
+.modal-mensaje {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    animation: modal-fade-in 0.3s;
+}
+@keyframes modal-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.modal-contenido {
+    background: linear-gradient(135deg, #ffffff 80%, #e6f0ff 100%);
+    padding: 2.5rem 2.5rem 2rem 2.5rem;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    text-align: center;
+    min-width: 320px;
+    max-width: 90vw;
+    border: 2px solid #007bff;
+    position: relative;
+    animation: modal-pop 0.4s;
+}
+@keyframes modal-pop {
+    0% { transform: scale(0.8);}
+    100% { transform: scale(1);}
+}
+.modal-texto {
+    display: block;
+    margin-bottom: 2rem;
+    font-size: 1.25rem;
+    color: #0044cc;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+.btn-modal {
+    background: linear-gradient(90deg, #007bff 60%, #0056b3 100%);
+    color: #fff;
+    border: none;
+    padding: 0.8rem 2.2rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: background 0.2s, transform 0.2s;
+}
+.btn-modal:hover {
+    background: linear-gradient(90deg, #0056b3 60%, #007bff 100%);
+    transform: scale(1.07);
+}
+
+/* Refuerzo para modo oscuro */
+body.dark-mode-variables main > h1 {
+    color: var(--form-text-color, #f0f0f0) !important;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+
+.detalles-cita {
+    list-style: none;
+    padding: 1.5em 2em;
+    margin: 1.5em auto 0 auto;
+    background: #f7f9fc;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px #181a1e;
+    font-size: 1.12em;
+    color: var(--perfil-texto, #222);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    max-width: 650px;
+    border: 1.5px solid #e0e6ef;
+    transition: background 0.3s, color 0.3s;
+}
+
+.detalles-cita li {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 6px #181a1e;
+    padding: 1.2em 1em;
+    margin-bottom: 0.5em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    border: 1px solid #e9ecf3;
+}
+
+.info-cita {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5em;
+    align-items: center;
+    margin-bottom: 0.5em;
+}
+
+.info-cita span strong {
+    color: #007bff;
+    font-weight: 600;
+    min-width: 90px;
+    display: inline-block;
+}
+
+.contenedor-botones {
+    display: flex;
+    gap: 1em;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 0.6em 1.5em;
+    border-radius: 6px;
+    font-size: 1em;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+.btn-actualizar {
+    background: linear-gradient(90deg, #1B9C85 60%, #007bff 100%);
+    color: #fff;
+}
+.btn-actualizar:hover {
+    background: linear-gradient(90deg, #007bff 60%, #1B9C85 100%);
+    transform: scale(1.04);
+}
+
+.btn-cancelar {
+    background: linear-gradient(90deg, #ff4e4e 60%, #b30000 100%);
+    color: #fff;
+}
+.btn-cancelar:hover {
+    background: linear-gradient(90deg, #b30000 60%, #ff4e4e 100%);
+    transform: scale(1.04);
+}
+
+.alert {
+    background-color: #d1e7dd;
+    color: #0f5132;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin: 2rem auto;
+    max-width: 500px;
+    text-align: center;
+    font-weight: 600;
+}
+
+body.dark-mode-variables .detalles-cita {
+    background: #23272f;
+    color: #f0f0f0;
+    border: 1.5px solid #444a57;
+}
+body.dark-mode-variables .detalles-cita li {
+    background: #202528;
+    border-color: #444a57;
+}
+body.dark-mode-variables .info-cita span strong {
+    color: #4ea8ff;
+}
+body.dark-mode-variables .btn-actualizar {
+    background: linear-gradient(90deg, #1B9C85 60%, #0056b3 100%);
+}
+body.dark-mode-variables .btn-cancelar {
+    background: linear-gradient(90deg, #ff4e4e 60%, #b30000 100%);
+}
+body.dark-mode-variables .alert {
+    background-color: #23272f;
+    color: #4ea8ff;
+    border: 1px solid #4ea8ff;
+}
+
+@media (max-width: 700px) {
+    .detalles-cita {
+        padding: 1em 0.5em;
+        font-size: 1em;
+        max-width: 99vw;
+    }
+    .detalles-cita li {
+        padding: 1em 0.5em;
+    }
+    .info-cita {
+        flex-direction: column;
+        gap: 0.5em;
+    }
+    .contenedor-botones {
+        flex-direction: column;
+        gap: 0.7em;
+        align-items: stretch;
+    }
+}

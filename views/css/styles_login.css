@@ -1,0 +1,224 @@
+/*inicio stilo de login */
+/*estilo del body de la pagina  */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+/* estilo del body login */
+.login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('../img/fondo_2.png') no-repeat ;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+/* estilo del body registrarse */
+.registro{
+display: flex;
+justify-content: center;
+align-items: center;
+min-height: 100vh;
+background: url('../img/fondo.png') no-repeat ;
+background-size: cover;
+background-position: center;
+background-attachment: fixed;
+}
+/* estilo del cuadro que contiene todo*/
+.wrapper{
+    width: 420px;
+    background-color: transparent;
+    border: 2px solid rgba(225, 225, 255, .2);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10 px rgba(0, 0, 0, .2);
+    color: #fff;
+    border-radius: 10px;
+    padding: 30px 40px;
+}
+/* estilo de la frase inicia sesion*/
+.wrapper h1{
+    font-size: 36px;
+    text-align: center;
+}
+/* estilo del cuadro del correo y contraseña*/
+.wrapper  .input-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+}
+/* estilo del cuadro que contiene todo*/
+.input-box input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(225, 225, 255, .2);
+    border-radius: 40px;
+    font-size: 16px;
+    color: #fff;
+    padding: 20px 45px 20px 20px;
+} 
+/* estilo de frase se quite */
+.input-box input::placeholder{
+    color: #fff;
+
+}
+/* estilo del imagen del user*/
+.input-box i{
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+} 
+/* estilo del texto olvido etc*/
+.wrapper .olvidado{
+    display: flex;
+    justify-content: end;
+    font-size: 16.5px;
+    margin: -15px 0 15px;
+}
+/* estilo del texto blaco*/
+.olvidado a{
+    color: #fff;
+    text-decoration: none;
+}
+/* estilo del la linea abajo del texto*/
+.olvidado a:hover{
+    text-decoration: underline;
+}
+/* estilo del boton*/
+.wrapper .boton_ol{
+    width: 100%;
+    height: 45px;
+    background-color: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: #003399;
+    cursor: pointer;
+    font-size: 16px;
+    color:#333;
+    font-weight: 600;
+}
+/* estilo del texto No tienes etc*/
+.wrapper .registrarse{
+    font-size: 15.5px;
+    text-align: center;
+    margin: 20px 0 15px;
+}
+/* estilo del texto blaco*/
+.registrarse a,p{
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+/* estilo del texto blaco*/
+.registrarse  a:hover{
+    text-decoration: underline;
+}
+
+/* Estilo para centrar el contenedor del botón volver */
+.volver {
+    text-align: center;
+    margin-top: 20px;
+}
+/* Estilo del botón volver */
+.boton_vo {
+    width: 80%; 
+    max-width: 200px; 
+    height: 40px;
+    background-color: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+}
+ul {
+    list-style-type: none; /* Quita el estilo de lista, eliminando el punto */
+}
+
+/* ===========================
+   Alertas modernas para registro
+   =========================== */
+.alert-reg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7em;
+    padding: 1em 1.5em;
+    border-radius: 12px;
+    font-size: 1.08em;
+    font-weight: 600;
+    margin: 1.2em 0 0.5em 0;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.10);
+    text-align: center;
+    animation: fadeInAlert 0.5s;
+    letter-spacing: 0.5px;
+}
+.alert-reg i {
+    font-size: 1.5em;
+}
+.success-reg {
+    background: linear-gradient(90deg, #1B9C85 60%, #007bff 100%);
+    color: #fff;
+}
+.error-reg {
+    background: linear-gradient(90deg, #ff5858 60%, #ffb347 100%);
+    color: #fff;
+}
+.btn-reg {
+    display: inline-block;
+    margin-left: 1em;
+    padding: 0.5em 1.2em;
+    background: #fff;
+    color: #1B9C85;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+}
+.btn-reg:hover {
+    background: #1B9C85;
+    color: #fff;
+}
+.msg-info {
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+    margin-bottom: 15px;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 8px 12px;
+    border-radius: 8px;
+}
+@keyframes fadeInAlert {
+    from { opacity: 0; transform: translateY(-10px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+.alerta-login {
+    text-align: center;
+    padding: 10px 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    backdrop-filter: blur(10px);
+}
+.alerta-login.success {
+    background-color: rgba(0, 128, 0, 0.5);
+    color: #fff;
+}
+.alerta-login.error {
+    background-color: rgba(255, 0, 0, 0.5);
+    color: #fff;
+}
